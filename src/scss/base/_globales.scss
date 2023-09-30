@@ -1,0 +1,55 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+// Variables
+$color-dark:        #001b1b;
+$color-light:       #f0f0f0;
+$color-main:        #00b8ba;
+$color-main-light:  #00ffed;
+$color-variant:     #4b0082;
+
+$font-main:     'Montserrat', sans-serif;
+$font-variant:  'Space Mono', monospace;
+
+// Media aliases and breakpoints
+$screen-sm-min: 600px;
+$screen-md-min: 960px;
+$screen-lg-min: 1280px;
+$screen-xl-min: 1920px;
+
+$screen-xs-max: 599px;
+$screen-sm-max: 959px;
+$screen-md-max: 1279px;
+$screen-lg-max: 1919px;
+$screen-xl-max: 5000px;
+
+// Mixins Media Devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
