@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-scroll";
 import { UilImport } from "@iconscout/react-unicons";
-import { handleOnMouseHover } from "../js/GlowyHoverEffect";
+import { handleOnMouseHover } from "./config/glowy-hover-effect";
 
 export const Navbar = () => {
   const urlDownloadResume =

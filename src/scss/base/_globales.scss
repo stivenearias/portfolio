@@ -81,7 +81,7 @@ $screen-xl-max: 5000px;
   background-color: get-opacity($color-light, 0.1);
   box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
   border-radius: 24px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   border: 1px solid get-opacity($color-light, 0.25);
 }
 
