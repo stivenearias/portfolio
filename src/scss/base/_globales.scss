@@ -53,3 +53,23 @@ $screen-xl-max: 5000px;
     @content;
   }
 }
+
+// Mixins
+// For use this mixi, in important put in a container with position absolute
+// this mixin for each child
+@mixin bg-blur-colors($top: auto, $right: auto, $bottom: auto, $left: auto, $size: 0, $color, $blur) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  width: $size;
+  height: $size;
+  background-color: $color;
+  filter: blur($blur);
+}
+
+// Functions
+@function get-opacity($color, $nivel) {
+  @return rgba($color, $nivel);
+}

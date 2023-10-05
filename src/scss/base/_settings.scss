@@ -8,6 +8,7 @@ html, body {
   font-family: $font-main;
   background-color: $color-dark;
   color: $color-light;
+  scroll-behavior: smooth;
 }
 
 li {

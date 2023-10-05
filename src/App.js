@@ -1,9 +1,9 @@
-import { Config } from "./components/Config";
+import { Home } from "./components/Home";
 
 function App() {
   return (
     <main>
-      <Config />
+      <Home />
     </main>
   );
 }
