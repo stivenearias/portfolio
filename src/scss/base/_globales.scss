@@ -69,6 +69,40 @@ $screen-xl-max: 5000px;
   filter: blur($blur);
 }
 
+// Center div
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Glass box
+@mixin glass-box {
+  background-color: get-opacity($color-light, 0.1);
+  box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  border: 1px solid get-opacity($color-light, 0.25);
+}
+
+// Glass button validating if is dark or light
+@mixin glass-btn($type: "dark") {
+  padding: 8px 24px;
+  border-radius: 24px;
+  color: $color-light;
+  backdrop-filter: blur(10px);
+
+  @if $type == "dark" {
+    border: 1px solid get-opacity($color-dark, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
+    background-color: get-opacity($color-dark, 0.5);
+  } @else {
+    border: 1px solid get-opacity($color-light, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-light, 0.05);
+    background-color: get-opacity($color-light, 0.5);
+  }
+}
+
 // Functions
 @function get-opacity($color, $nivel) {
   @return rgba($color, $nivel);

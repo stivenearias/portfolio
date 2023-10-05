@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  display: flex;
+  position: fixed;
+}
+
+.navbar {
+  width: 100%;
+  margin: 40px 80px 0;
+  padding: 24px 48px;
+  @include flex-center;
+  @include glass-box;
+
+  a {
+    cursor: pointer;
+  }
+
+  &__logo {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__item {
+    .active {
+      font-weight: bold;
+  
+      &::before {
+        content: '< ';
+        color: $color-main;
+      }
+  
+      &::after {
+        content: ' />';
+        color: $color-main;
+      }
+    }
+  }
+
+  &__resume {
+    display: flex;
+    align-items: center;
+    @include glass-btn("light");
+
+    svg {
+      margin-right: 4px;
+    }
+  }
+}
