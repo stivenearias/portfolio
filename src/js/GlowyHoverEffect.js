@@ -1,44 +1,17 @@
-// const cardsContainer = document.querySelector(".cards");
-// const cardsContainerInner = document.querySelector(".cards__inner");
-// const cards = Array.from(document.querySelectorAll(".card"));
-// const overlay = document.querySelector(".overlay");
+/**
+ * This function is used for get the position of the pointer and get effect when it pass for an element
+ * Is used in the cards with glass effect, for example in the navbar
+ * @param {*} e Get the event of the element specific
+ */
+export const handleOnMouseHover = (e) => {
+  const { currentTarget: target } = e;
 
-// const applyOverlayMask = (e) => {
-//   const overlayEl = e.currentTarget;
-//   const x = e.pageX - cardsContainer.offsetLeft;
-//   const y = e.pageY - cardsContainer.offsetTop;
+  console.log(e);
 
-//   overlayEl.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
-// };
+  const rect = target.getBoundingClientRect(),
+    x = e.clientX - rect.left,
+    y = e.clientY - rect.top;
 
-// const createOverlayCta = (overlayCard, ctaEl) => {
-//   const overlayCta = document.createElement("div");
-//   overlayCta.classList.add("cta");
-//   overlayCta.textContent = ctaEl.textContent;
-//   overlayCta.setAttribute("aria-hidden", true);
-//   overlayCard.append(overlayCta);
-// };
-
-// const observer = new ResizeObserver((entries) => {
-//   entries.forEach((entry) => {
-//     const cardIndex = cards.indexOf(entry.target);
-//     let width = entry.borderBoxSize[0].inlineSize;
-//     let height = entry.borderBoxSize[0].blockSize;
-
-//     if (cardIndex >= 0) {
-//       overlay.children[cardIndex].style.width = `${width}px`;
-//       overlay.children[cardIndex].style.height = `${height}px`;
-//     }
-//   });
-// });
-
-// const initOverlayCard = (cardEl) => {
-//   const overlayCard = document.createElement("div");
-//   overlayCard.classList.add("card");
-//   createOverlayCta(overlayCard, cardEl.lastElementChild);
-//   overlay.append(overlayCard);
-//   observer.observe(cardEl);
-// };
-
-// cards.forEach(initOverlayCard);
-// document.body.addEventListener("pointermove", applyOverlayMask);
+  target.style.setProperty("--mouse-x", `${x}px`);
+  target.style.setProperty("--mouse-y", `${y}px`);
+};

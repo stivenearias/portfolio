@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-scroll";
 import { UilImport } from "@iconscout/react-unicons";
-// import "../js/GlowyHoverEffect";
+import { handleOnMouseHover } from "../js/GlowyHoverEffect";
 
 export const Navbar = () => {
   const urlDownloadResume =
@@ -10,6 +10,12 @@ export const Navbar = () => {
     offset: -100,
     duration: 100,
   };
+
+  useEffect(() => {
+    for (const item of document.querySelectorAll(".navbar")) {
+      item.onmousemove = (e) => handleOnMouseHover(e);
+    }
+  }, []);
 
   return (
     <header className="header">

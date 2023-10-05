@@ -18,17 +18,31 @@
   &__logo {
     font-size: 2em;
     font-weight: bold;
+    transition: all 500ms;
+    color: get-opacity($color-light, 0.6);
+
+    &:hover {
+      color: get-opacity($color-light, 1);
+    }
+
+    @include config-glowy-hover-effect;
   }
 
   &__items {
     display: flex;
     align-items: center;
     gap: 24px;
+
+    @include config-glowy-hover-effect;
   }
 
   &__item {
+    color: get-opacity($color-light, 0.6);
+    transition: all 500ms;
+
     .active {
       font-weight: bold;
+      color: get-opacity($color-light, 1);
   
       &::before {
         content: '< ';
@@ -40,15 +54,26 @@
         color: $color-main;
       }
     }
+
+    &:hover {
+      &:not(.navbar__item:last-child) {
+        color: get-opacity($color-light, 1);
+      }
+    }
   }
 
   &__resume {
-    display: flex;
-    align-items: center;
+    font-weight: bold;
+    transition: all 500ms;
+    @include flex-center;
     @include glass-btn("light");
 
     svg {
       margin-right: 4px;
+    }
+
+    &:hover {
+      @include glass-btn("dark");
     }
   }
 }

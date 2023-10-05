@@ -85,6 +85,32 @@ $screen-xl-max: 5000px;
   border: 1px solid get-opacity($color-light, 0.25);
 }
 
+// This mixin contain the config for the mause effect when the cursor pass for glass boxes
+// This mixin have to be imported inside the class of the element that will be afected
+@mixin config-glowy-hover-effect {
+  &::before {
+    background: radial-gradient(
+      120px circle at var(--mouse-x) var(--mouse-y),
+      get-opacity($color-main, 0.6),
+      transparent 40%
+    );
+    content: '';
+    border-radius: initial;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
 // Glass button validating if is dark or light
 @mixin glass-btn($type: "dark") {
   padding: 8px 24px;
@@ -99,7 +125,7 @@ $screen-xl-max: 5000px;
   } @else {
     border: 1px solid get-opacity($color-light, 0.25);
     box-shadow: 0 16px 32px get-opacity($color-light, 0.05);
-    background-color: get-opacity($color-light, 0.5);
+    background-color: get-opacity($color-light, 0.2);
   }
 }
 
