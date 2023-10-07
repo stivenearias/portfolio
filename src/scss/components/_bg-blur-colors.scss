@@ -1,0 +1,13 @@
+.bg-blur {
+  &__color:nth-child(1) {
+    @include bg-blur-colors(50px, 100px, auto, auto, 250px, get-opacity($color-main, .7), 150px);
+  }
+
+  &__color:nth-child(2) {
+    @include bg-blur-colors(auto, 200px, auto, 100px, 150px, get-opacity($color-main-light, .5), 150px);
+  }
+
+  &__color:nth-child(3) {
+    @include bg-blur-colors(auto, auto, 100px, 450px, 300px, get-opacity($color-main, .3), 150px);
+  }
+}

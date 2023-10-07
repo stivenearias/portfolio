@@ -1,0 +1,160 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+
+// Variables
+$color-dark:        #001b1b;
+$color-light:       #f0f0f0;
+$color-main:        #00b8ba;
+$color-main-light:  #00ffed;
+$color-variant:     #4b0082;
+
+$font-main:     'Montserrat', sans-serif;
+$font-variant:  'Space Mono', monospace;
+
+// Media aliases and breakpoints
+$screen-sm-min: 600px;
+$screen-md-min: 960px;
+$screen-lg-min: 1280px;
+$screen-xl-min: 1920px;
+
+$screen-xs-max: 599px;
+$screen-sm-max: 959px;
+$screen-md-max: 1279px;
+$screen-lg-max: 1919px;
+$screen-xl-max: 5000px;
+
+// Mixins Media Devices
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) and (max-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+// Mixins
+// For use this mixi, in important put in a container with position absolute
+// this mixin for each child
+@mixin bg-blur-colors($top: auto, $right: auto, $bottom: auto, $left: auto, $size: 0, $color, $blur) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  width: $size;
+  height: $size;
+  background-color: $color;
+  filter: blur($blur);
+}
+
+// Center div
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Glass box
+@mixin glass-box {
+  background-color: get-opacity($color-light, 0.1);
+  box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
+  border-radius: 24px;
+  backdrop-filter: blur(4px);
+  border: 1px solid get-opacity($color-light, 0.25);
+}
+
+// This mixin contain the config for the mause effect when the cursor pass for glass boxes
+// This mixin have to be imported inside the class of the element that will be afected
+@mixin config-glowy-hover-effect {
+  &::before {
+    background: radial-gradient(
+      120px circle at var(--mouse-x) var(--mouse-y),
+      get-opacity($color-main, 0.6),
+      transparent 40%
+    );
+    content: '';
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Glass button validating if is dark or light
+@mixin glass-btn($type: "dark", $effect: "off", $transRight: 0, $transLeft: 0, $colorEnd: $color-light) {
+  padding: 8px 24px;
+  border-radius: 24px;
+  color: $color-light;
+  backdrop-filter: blur(10px);
+
+  @if $type == "dark" {
+    border: 1px solid get-opacity($color-dark, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
+    background-color: get-opacity($color-dark, 0.5);
+  } @else if $type == "main" {
+    border: 1px solid get-opacity($color-main, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-main, 0.05);
+    background-color: get-opacity($color-main, 0.3);
+  } @else {
+    border: 1px solid get-opacity($color-light, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-light, 0.05);
+    background-color: get-opacity($color-light, 0.1);
+  }
+
+  @if $effect == "on" {
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: get-opacity($color-light, 0.5);
+      transform: skewX(45deg) translateX($transRight);
+      transition: 500ms;
+    }
+
+    &:hover::before {
+      background-color: get-opacity($colorEnd, 0.3);
+      transform: skewX(45deg) translateX($transLeft);
+    }
+  }
+}
+
+// Functions
+@function get-opacity($color, $nivel) {
+  @return rgba($color, $nivel);
+}

@@ -1,0 +1,96 @@
+.home {
+  &__container {
+    height: calc(100dvh - 149px);
+    margin: 130px 80px 40px;
+    padding: 24px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // TODO: Revisar si matener estaos dos mixins o no (Tambien el componente)
+    // @include glass-box;
+    // @include config-glowy-hover-effect;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3em;
+
+    span {
+      color: $color-main;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2em;
+    color: get-opacity($color-light, 0.5);
+  }
+
+  &__description {
+    max-width: 600px;
+    margin: 32px 0;
+  }
+
+  &__description::before {
+    content: "";
+    width: 160px;
+    height: 2px;
+    background-color: $color-main;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  &__btn {
+    font-weight: bold;
+    width: 160px;
+    transition: all 500ms;
+    @include flex-center;
+    @include glass-btn("light", "on", 180px, -50px, $color-main);
+
+    &:hover {
+      cursor: pointer;
+      @include glass-btn("main");
+    }
+  }
+
+  &__img {
+    img {
+      width: 400px;
+    }
+  }
+
+  &__redes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  &__red {
+    a {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      padding: unset !important;
+      @include glass-btn("light", "on", 100px, -60px, $color-main);
+      @include flex-center;
+
+      &:hover {
+        background-color: get-opacity($color-main, 0.3);
+
+        svg {
+          width: 1.9em;
+          height: 1.9em;
+        }
+      }
+    }
+
+    svg{
+      width: 1.7em;
+      height: 1.7em;
+      color: $color-light;
+    }
+  } 
+}
