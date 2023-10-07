@@ -6,10 +6,13 @@
 
 .navbar {
   width: 100%;
-  margin: 40px 80px 0;
+  margin: 20px 80px 0;
   padding: 24px 48px;
-  @include flex-center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @include glass-box;
+  @include config-glowy-hover-effect;
 
   a {
     cursor: pointer;
@@ -24,16 +27,12 @@
     &:hover {
       color: get-opacity($color-light, 1);
     }
-
-    @include config-glowy-hover-effect;
   }
 
   &__items {
     display: flex;
     align-items: center;
     gap: 24px;
-
-    @include config-glowy-hover-effect;
   }
 
   &__item {
@@ -66,14 +65,14 @@
     font-weight: bold;
     transition: all 500ms;
     @include flex-center;
-    @include glass-btn("light");
+    @include glass-btn("light", "on", 160px, -50px, $color-main);
 
     svg {
       margin-right: 4px;
     }
 
     &:hover {
-      @include glass-btn("dark");
+      @include glass-btn("main");
     }
   }
 }

@@ -11,6 +11,11 @@ html, body {
   scroll-behavior: smooth;
 }
 
+::selection { 
+  background: $color-main;
+  color:$color-dark;
+}
+
 li {
   list-style: none;
 }
@@ -27,4 +32,9 @@ button {
 
 main {
   overflow: hidden;
+}
+
+// This is necesary for solved a bug with tsparticles that not run the option of select the text
+#tsparticles canvas {
+  pointer-events: none !important;
 }

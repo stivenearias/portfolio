@@ -73,7 +73,7 @@ $screen-xl-max: 5000px;
 @mixin flex-center {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 // Glass box
@@ -95,7 +95,7 @@ $screen-xl-max: 5000px;
       transparent 40%
     );
     content: '';
-    border-radius: initial;
+    border-radius: inherit;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -112,7 +112,7 @@ $screen-xl-max: 5000px;
 }
 
 // Glass button validating if is dark or light
-@mixin glass-btn($type: "dark") {
+@mixin glass-btn($type: "dark", $effect: "off", $transRight: 0, $transLeft: 0, $colorEnd: $color-light) {
   padding: 8px 24px;
   border-radius: 24px;
   color: $color-light;
@@ -122,10 +122,35 @@ $screen-xl-max: 5000px;
     border: 1px solid get-opacity($color-dark, 0.25);
     box-shadow: 0 16px 32px get-opacity($color-dark, 0.05);
     background-color: get-opacity($color-dark, 0.5);
+  } @else if $type == "main" {
+    border: 1px solid get-opacity($color-main, 0.25);
+    box-shadow: 0 16px 32px get-opacity($color-main, 0.05);
+    background-color: get-opacity($color-main, 0.3);
   } @else {
     border: 1px solid get-opacity($color-light, 0.25);
     box-shadow: 0 16px 32px get-opacity($color-light, 0.05);
-    background-color: get-opacity($color-light, 0.2);
+    background-color: get-opacity($color-light, 0.1);
+  }
+
+  @if $effect == "on" {
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 100%;
+      background-color: get-opacity($color-light, 0.5);
+      transform: skewX(45deg) translateX($transRight);
+      transition: 500ms;
+    }
+
+    &:hover::before {
+      background-color: get-opacity($colorEnd, 0.3);
+      transform: skewX(45deg) translateX($transLeft);
+    }
   }
 }
 

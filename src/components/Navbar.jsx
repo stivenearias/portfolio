@@ -7,7 +7,7 @@ export const Navbar = () => {
   const urlDownloadResume =
     "https://drive.google.com/uc?id=1PuSpXB12w1xXvqMgcNhKRAJ7FC3D0qcY&export=download";
   const configReactScroll = {
-    offset: -100,
+    offset: -130,
     duration: 100,
   };
 
@@ -25,7 +25,7 @@ export const Navbar = () => {
           to="home"
           spy={true}
           smooth={true}
-          offset={configReactScroll.offset}
+          offset={-130}
           duration={configReactScroll.duration}
           className="navbar__logo"
         >
@@ -38,7 +38,7 @@ export const Navbar = () => {
               to="home"
               spy={true}
               smooth={true}
-              offset={configReactScroll.offset}
+              offset={-130}
               duration={configReactScroll.duration}
             >
               Home
@@ -50,7 +50,7 @@ export const Navbar = () => {
               to="about"
               spy={true}
               smooth={true}
-              offset={configReactScroll.offset}
+              offset={0}
               duration={configReactScroll.duration}
             >
               About
@@ -62,7 +62,7 @@ export const Navbar = () => {
               to="work"
               spy={true}
               smooth={true}
-              offset={configReactScroll.offset}
+              offset={0}
               duration={configReactScroll.duration}
             >
               Work
@@ -74,7 +74,7 @@ export const Navbar = () => {
               to="contact"
               spy={true}
               smooth={true}
-              offset={configReactScroll.offset}
+              offset={0}
               duration={configReactScroll.duration}
             >
               Contact

@@ -1,5 +1,6 @@
 import { About } from "./components/About";
-import { BgBlurs } from "./components/BgBlurs";
+// TODO: Validar si dejamos estos blurs o los quitamos
+// import { BgBlurs } from "./components/BgBlurs";
 import { Contact } from "./components/Contact";
 import { Home } from "./components/Home";
 import { Navbar } from "./components/Navbar";
@@ -10,7 +11,7 @@ function App() {
   return (
     <main>
       <ParticlesBackground />
-      <BgBlurs />
+      {/* <BgBlurs /> */}
       <Navbar />
 
       {/* Sections */}
