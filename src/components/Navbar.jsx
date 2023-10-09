@@ -25,7 +25,7 @@ export const Navbar = () => {
           to="home"
           spy={true}
           smooth={true}
-          offset={-130}
+          offset={configReactScroll.offset}
           duration={configReactScroll.duration}
           className="navbar__logo"
         >
@@ -38,7 +38,7 @@ export const Navbar = () => {
               to="home"
               spy={true}
               smooth={true}
-              offset={-130}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
             >
               Home
@@ -50,7 +50,7 @@ export const Navbar = () => {
               to="about"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
             >
               About
@@ -62,7 +62,7 @@ export const Navbar = () => {
               to="work"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
             >
               Work
@@ -74,7 +74,7 @@ export const Navbar = () => {
               to="contact"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
             >
               Contact
