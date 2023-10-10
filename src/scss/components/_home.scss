@@ -6,9 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // TODO: Revisar si matener estaos dos mixins o no (Tambien el componente)
-    // @include glass-box;
-    // @include config-glowy-hover-effect;
   }
 
   &__text {
@@ -94,11 +91,12 @@
       width: 60px;
       height: 60px;
       padding: unset !important;
+      transition: all 500ms;
       @include glass-btn("light", "on", 100px, -60px, $color-main);
       @include flex-center;
 
       &:hover {
-        background-color: get-opacity($color-main, 0.3);
+        @include glass-btn("main");
 
         svg {
           width: 1.9em;

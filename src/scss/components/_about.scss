@@ -1,5 +1,4 @@
 .about {
-  // height: calc(100dvh - 149px);
   @include main-section;
 
   &__title {
@@ -44,26 +43,31 @@
 
   &__btns {
     @include flex-center;
+    gap: 16px;
   }
 
   &__prev {
-
     svg {
+      width: 32px;
+      height: 32px;
       color: $color-main;
     }
 
     &:hover {
+      scale: 1.2;
       cursor: pointer;
     }
   }
 
   &__next {
-    
     svg {
+      width: 32px;
+      height: 32px;
       color: $color-main;
     }
 
     &:hover {
+      scale: 1.2;
       cursor: pointer;
     }
   }

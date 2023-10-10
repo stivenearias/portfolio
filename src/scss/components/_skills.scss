@@ -8,4 +8,42 @@
   &__subtitle {
     @include section-subtitle;
   }
+
+  &__container {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  &__skill {
+    @include flex-center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    transition: all 500ms;
+    @include glass-box;
+
+    svg{
+      width: 120px !important;
+      height: 120px !important;
+
+      path {
+        fill: $color-main;
+      }
+
+      g {
+        fill: $color-main;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+    }
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
 }

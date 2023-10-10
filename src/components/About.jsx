@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { UilAngleLeftB, UilAngleRightB } from "@iconscout/react-unicons";
+import { Skills } from "./Skills";
 
 export const About = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
@@ -84,6 +85,8 @@ export const About = () => {
           </p>
         </div>
       </div>
+
+      <Skills />
     </section>
   );
 };

@@ -1,16 +1,8 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { UilLinkedinAlt, UilGithubAlt } from "@iconscout/react-unicons";
-// import { handleOnMouseHover } from "./config/glowy-hover-effect";
 
 export const Home = () => {
-  // TODO: Revisar si matener estaos dos mixins o no (Tambien el SCSS)
-  // useEffect(() => {
-  //   for (const item of document.querySelectorAll(".home__container")) {
-  //     item.onmousemove = (e) => handleOnMouseHover(e);
-  //   }
-  // }, []);
-
   return (
     <section id="home" className="home">
       <div className="home__container">
