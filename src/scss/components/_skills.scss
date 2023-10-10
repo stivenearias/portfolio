@@ -27,11 +27,7 @@
       width: 120px !important;
       height: 120px !important;
 
-      path {
-        fill: $color-main;
-      }
-
-      g {
+      path, g {
         fill: $color-main;
       }
     }

@@ -19,11 +19,11 @@ export const Skills = () => {
       <h2 className="skills__subtitle">To bring projects to life</h2>
       <div className="skills__container">
         <div className="skills__skill">
-          <Html5Plain color="#00b8ba" />
+          <Html5Plain />
           <p>HTML</p>
         </div>
         <div className="skills__skill">
-          <Css3Plain color="#00b8ba" />
+          <Css3Plain />
           <p>CSS</p>
         </div>
         <div className="skills__skill">
