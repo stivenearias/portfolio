@@ -8,4 +8,119 @@
   &__subtitle {
     @include section-subtitle;
   }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  &__item {
+    max-width: 500px;
+    flex: 1 1 400px;
+    transition: all 300ms;
+
+    &:hover {
+      transform: translateY(-16px);
+    }
+  }
+
+  &__container-img {
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 70%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to top, $color-dark, transparent);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__first-data {
+    padding: 0 16px;
+    position: absolute;
+    top: -95px;
+  }
+
+  &__type, &__date {
+    color: get-opacity($color-light, 0.6);
+  }
+
+  &__position {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+
+  &__title-item {
+    color: $color-main;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+  }
+
+  &__descriptions {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    margin-left: 1em;
+
+    &::before {
+      content: "\2022";
+      color: $color-main;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    &:not(:last-child){
+      margin-bottom: 4px;
+    }
+  }
+
+  &__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  &__tool {
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    @include glass-box;
+  }
+
+  &__btns {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding: 0 16px;
+  }
+
+  &__btn {
+    color: $color-light;
+    transition: all 300ms;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
 }

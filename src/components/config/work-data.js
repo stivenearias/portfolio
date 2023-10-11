@@ -1,7 +1,7 @@
 const workData = [
   {
     key: 1,
-    img: "https://iili.io/J3arztp.png",
+    img: "https://iili.io/J3lldGI.png",
     position: "Junior Frontend Developer",
     title: "Neuvoo to become Talent.com",
     description: [
@@ -14,6 +14,7 @@ const workData = [
     tools: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap"],
     buttons: [
       {
+        key: 1,
         type: "web",
         link: "https://www.talent.com",
       },
@@ -21,7 +22,7 @@ const workData = [
   },
   {
     key: 2,
-    img: "https://iili.io/J3arxNR.png",
+    img: "https://iili.io/J3llJCN.png",
     position: "Frontend Developer",
     title: "Talent.com",
     description: [
@@ -35,23 +36,25 @@ const workData = [
     tools: ["HTML", "CSS", "JavaScript", "PHP", "HyperUI", "JQuery"],
     buttons: [
       {
+        key: 1,
         type: "web",
-        link: "https://www.talent.com",
+        link: "https://www.talent.com/en/enterprise",
       },
     ],
   },
   {
     key: 3,
-    img: "https://iili.io/J3agQM7.png",
-    position: "",
-    title: "Social Bles",
+    img: "https://iili.io/J3ll24t.png",
+    position: "Fullstack Developer",
+    title: "Social Bless",
     description:
       "A personal blog to share thoughts, ideas, opinions and content about God.",
     type: "Project",
     date: "Workint on it",
-    tools: ["Mongo", "Express", "React", "Node", "SASS"],
+    tools: ["Mongo", "Express", "React", "Node", "SCSS"],
     buttons: [
       {
+        key: 1,
         type: "inProgress",
         link: "",
       },
