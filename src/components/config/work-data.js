@@ -1,7 +1,7 @@
 const workData = [
   {
     key: 1,
-    img: "",
+    img: "https://iili.io/J3arztp.png",
     position: "Junior Frontend Developer",
     title: "Neuvoo to become Talent.com",
     description: [
@@ -21,7 +21,7 @@ const workData = [
   },
   {
     key: 2,
-    img: "",
+    img: "https://iili.io/J3arxNR.png",
     position: "Frontend Developer",
     title: "Talent.com",
     description: [
@@ -42,7 +42,7 @@ const workData = [
   },
   {
     key: 3,
-    img: "",
+    img: "https://iili.io/J3agQM7.png",
     position: "",
     title: "Social Bles",
     description:
