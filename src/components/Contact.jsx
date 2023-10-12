@@ -61,13 +61,18 @@ export const Contact = () => {
           <div className="contact__input-box">
             <label className="contact__label">Your Message</label>
             <textarea
-              className="contact__input"
+              className="contact__input contact__textarea"
               placeholder="Hello, I'm sure we can create code together. Tell me what you think and let's work together!"
               {...register("message", { required: true, maxLength: 1000 })}
               aria-invalid={errors.message ? true : false}
             />
             {errors.message?.type === "required" && (
               <p className="contact__error">Your message is required</p>
+            )}
+            {errors.message?.type === "maxLength" && (
+              <p className="contact__error">
+                Your message is very long, maximum 1000 characters
+              </p>
             )}
           </div>
           <button type="submit" form="sendMail" className="contact__submit">
