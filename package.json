@@ -12,6 +12,7 @@
     "embla-carousel-react": "^8.0.0-rc14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.8.9",
     "react-tsparticles": "^2.12.2",
