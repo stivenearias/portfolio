@@ -58,6 +58,10 @@ main {
   overflow: hidden;
 }
 
+textarea {
+  font-family: $font-main;
+}
+
 // This is necesary for solved a bug with tsparticles that not run the option of select the text
 #tsparticles canvas {
   pointer-events: none !important;

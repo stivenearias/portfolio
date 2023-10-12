@@ -11,9 +11,68 @@
 
   &__form {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: 16px;
+    padding: 40px;
+    width: 700px;
+  }
+
+  &__input-box {
+    margin-bottom: 40px;
+    width: 100%;
+
+  }
+
+  &__label {
+    padding: 8px 0;
+    font-size: 0.9em;
+    pointer-events: none;
+    color: get-opacity($color-main, 0.4);
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid get-opacity($color-main, 0.4);
+    color: $color-light;
+    min-width: 390px;
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1em;
+
+    &:hover, &:focus {
+      border-bottom: 1px solid $color-main;
+    }
+
+    &::placeholder {
+      color: get-opacity($color-light, 0.4);;
+    }
+  }
+
+  &__error {
+    margin-top: 8px;
+    font-size: 0.8em;
+    color: get-opacity(#ff3333, 0.5);
+  }
+
+  &__submit {
+    font-weight: bold;
+    width: 200px;
+    height: 40px;
+    transition: all 500ms;
+    @include flex-center;
+    @include glass-btn("light", "on", 220px, -50px, $color-main);
+
+    svg {
+      margin-left: 8px;
+      width: 1.5em;
+    }
+
+    &:hover {
+      cursor: pointer;
+      @include glass-btn("main");
+    }
   }
 }
