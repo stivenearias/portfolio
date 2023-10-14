@@ -28,7 +28,7 @@ export const Home = () => {
         </div>
         <div className="home__img">
           <img
-            src="https://iili.io/J2u1Ujp.png"
+            src="https://iili.io/J33Ci3G.jpg"
             alt="Vector of a character programming a website"
           />
         </div>
