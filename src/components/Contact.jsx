@@ -38,7 +38,9 @@ export const Contact = () => {
     );
   };
 
-  const notifyError = () => {
+  const notifyError = ({ name, email, message }) => {
+    const mailto = `mailto:bsea096@hotmail.com?subject=** I want to hire you! From ${name}&body=Hi Stivenns!%0A%0A${name} is interested in you!%0A%0AFrom email: ${email}%0A%0AMessage: ${message}%0A%0A`;
+
     toast(
       (t) => (
         <div className="contact__resultError">
@@ -49,7 +51,8 @@ export const Contact = () => {
               <br />
               Please try again or write to me by clicking
               <a
-                href="mailto: bsea096@hotmail.com"
+                href={mailto}
+                onClick={() => toast.dismiss(t.id)}
                 className="contact__resultError--click"
               >
                 &nbsp;here.
@@ -87,7 +90,7 @@ export const Contact = () => {
 
   const form = useRef();
 
-  const sendEmail = () => {
+  const sendEmail = (data) => {
     emailjs
       .sendForm(
         "service_s3zx5jk",
@@ -101,7 +104,7 @@ export const Contact = () => {
           reset();
         },
         (error) => {
-          notifyError();
+          notifyError(data);
         }
       );
   };
@@ -175,7 +178,6 @@ export const Contact = () => {
           </button>
         </form>
       </div>
-      {/* <button onClick={notifyError}>Make me a toast</button> */}
       <Toaster />
     </section>
   );
