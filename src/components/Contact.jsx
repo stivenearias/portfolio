@@ -1,16 +1,109 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
-import { UilMessage } from "@iconscout/react-unicons";
+import { UilMessage, UilSmileBeam, UilSad } from "@iconscout/react-unicons";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Contact = () => {
+  const notifyOk = () => {
+    toast(
+      (t) => (
+        <div className="contact__resultOK">
+          <div className="contact__resultOK--container">
+            <UilSmileBeam />
+            <div className="contact__resultOK--msg">
+              Your email was sent successfully!
+              <br />I will contact you soon!
+            </div>
+          </div>
+          <button
+            className="contact__resultOK--close"
+            onClick={() => toast.dismiss(t.id)}
+          >
+            x
+          </button>
+        </div>
+      ),
+      {
+        duration: 6000,
+        position: "bottom-right",
+        style: {
+          background: "transparent",
+          boxShadow: "none",
+          maxWidth: "none",
+          padding: "unset",
+          borderRadius: "unset",
+        },
+      }
+    );
+  };
+
+  const notifyError = () => {
+    toast(
+      (t) => (
+        <div className="contact__resultError">
+          <div className="contact__resultError--container">
+            <UilSad />
+            <div className="contact__resultError--msg">
+              There was a problem sending your email.
+              <br />
+              Please try again or write to me by clicking
+              <a
+                href="mailto: bsea096@hotmail.com"
+                className="contact__resultError--click"
+              >
+                &nbsp;here.
+              </a>
+            </div>
+          </div>
+          <button
+            className="contact__resultError--close"
+            onClick={() => toast.dismiss(t.id)}
+          >
+            x
+          </button>
+        </div>
+      ),
+      {
+        duration: 10000,
+        position: "bottom-right",
+        style: {
+          background: "transparent",
+          boxShadow: "none",
+          maxWidth: "none",
+          padding: "unset",
+          borderRadius: "unset",
+        },
+      }
+    );
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
-  const sendMail = (data) => {
-    console.log(data);
+  const form = useRef();
+
+  const sendEmail = () => {
+    emailjs
+      .sendForm(
+        "service_s3zx5jk",
+        "template_8j9q7lu",
+        form.current,
+        "n4YYMZ7a8Z2R-79rq"
+      )
+      .then(
+        (result) => {
+          notifyOk();
+          reset();
+        },
+        (error) => {
+          notifyError();
+        }
+      );
   };
 
   return (
@@ -19,9 +112,10 @@ export const Contact = () => {
       <h2 className="contact__subtitle">Let's fun code together!</h2>
       <div className="contact__container">
         <form
-          id="sendMail"
+          id="sendEmail"
           className="contact__form"
-          onSubmit={handleSubmit(sendMail)}
+          ref={form}
+          onSubmit={handleSubmit(sendEmail)}
         >
           <div className="contact__input-box">
             <label className="contact__label">Your Name</label>
@@ -75,12 +169,14 @@ export const Contact = () => {
               </p>
             )}
           </div>
-          <button type="submit" form="sendMail" className="contact__submit">
+          <button type="submit" form="sendEmail" className="contact__submit">
             Send Message
             <UilMessage />
           </button>
         </form>
       </div>
+      {/* <button onClick={notifyError}>Make me a toast</button> */}
+      <Toaster />
     </section>
   );
 };
