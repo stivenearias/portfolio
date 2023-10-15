@@ -28,7 +28,14 @@
   &__text {
     width: 100%;
     max-width: 70%;
-    margin-left: 20px;
+
+    @include md {
+      max-width: 80%;
+    }
+
+    @include sm {
+      max-width: none;
+    }
 
     &--important {
       color: $color-main;
