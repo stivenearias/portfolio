@@ -14,17 +14,25 @@
     align-items: flex-start;
     justify-content: center;
     margin-bottom: 40px;
+    width: 100%;
   }
 
   &__img {
-    width: 400px;
+    width: 320px;
     height: 400px;
     object-fit: cover;
+    float: left;
+    margin: auto 20px 20px auto;
   }
 
   &__text {
-    max-width: 35%;
+    width: 100%;
+    max-width: 70%;
     margin-left: 20px;
+
+    &--important {
+      color: $color-main;
+    }
   }
 }
 
