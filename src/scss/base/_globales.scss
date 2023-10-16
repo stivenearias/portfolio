@@ -167,6 +167,7 @@ $screen-xl-max: 5000px;
 @mixin section-title {
   font-size: 8em;
   font-weight: bold;
+  text-align: center;
   color: $color-light;
   background: get-opacity($color-light, 0.2);
   background: linear-gradient(0deg, get-opacity($color-light, 0) 0%, get-opacity($color-light, 0.2) 100%);
@@ -182,6 +183,7 @@ $screen-xl-max: 5000px;
   position: relative;
   display: flex;
   top: -60px;
+  text-align: center;
 
   &::before {
     content: "";
