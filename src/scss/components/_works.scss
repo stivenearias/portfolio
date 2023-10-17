@@ -22,14 +22,10 @@
   }
 
   &__item {
-    max-width: 500px;
-    min-width: 390px;
-    flex: 1 1 390px;
+    flex: 1 1 320px;
     transition: all 300ms;
 
     @include xs {
-      max-width: auto;
-      min-width: auto;
       flex: 1 1 320px;
     }
 
