@@ -4,15 +4,24 @@ import { UilImport } from "@iconscout/react-unicons";
 import { handleOnMouseHover } from "./config/glowy-hover-effect";
 
 export const Navbar = () => {
-  const urlDownloadResume =
-    "https://drive.google.com/uc?id=1PuSpXB12w1xXvqMgcNhKRAJ7FC3D0qcY&export=download";
-  const configReactScroll = {
-    offset: -130,
-    duration: 100,
-  };
-
   const [isOpen, setIsOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+
+  const urlDownloadResume =
+    "https://drive.google.com/uc?id=1PuSpXB12w1xXvqMgcNhKRAJ7FC3D0qcY&export=download";
+
+  let configReactScroll = {};
+  if (width >= 600) {
+    configReactScroll = {
+      offset: -130,
+      duration: 100,
+    };
+  } else {
+    configReactScroll = {
+      offset: -100,
+      duration: 100,
+    };
+  }
 
   useEffect(() => {
     for (const item of document.querySelectorAll(".navbar")) {
