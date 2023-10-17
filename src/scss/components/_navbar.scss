@@ -125,7 +125,6 @@
     }
 
     &.open span:nth-child(2){
-      transition-delay: 5ms;
       transform: translateX(-12px) scaleY(1.1);
       opacity:0;
     }
