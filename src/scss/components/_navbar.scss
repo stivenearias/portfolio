@@ -22,6 +22,10 @@
     }
   }
 
+  @include xs {
+    margin: 16px;
+  }
+
   a {
     cursor: pointer;
   }

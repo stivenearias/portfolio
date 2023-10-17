@@ -12,11 +12,16 @@ export const Navbar = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     for (const item of document.querySelectorAll(".navbar")) {
       item.onmousemove = (e) => handleOnMouseHover(e);
     }
+  }, []);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
   }, []);
 
   return (
@@ -31,7 +36,7 @@ export const Navbar = () => {
           duration={configReactScroll.duration}
           className="navbar__logo"
         >
-          Stivenns
+          {width >= 600 ? "Stivenns" : "Stv."}
         </Link>
         <ul className={`navbar__items ${isOpen && "open"}`}>
           <li className="navbar__item">
