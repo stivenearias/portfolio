@@ -50,8 +50,9 @@ export const About = () => {
               analytical and logical approach{" "}
             </span>
             to problem-solving makes me a dependable asset. My constant desire
-            to learn and grow ensures that I stay updated on the latest trends
-            and technologies in frontend development. If you're looking for a{" "}
+            to learn and grow makes me give everything to be able to leave
+            efficient and effective results in my work as a frontend developer.
+            If you're looking for a{" "}
             <span className="about__text--important">
               highly competent frontend developer committed to quality,
             </span>{" "}
