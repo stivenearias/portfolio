@@ -16,7 +16,7 @@
   @include glass-box;
   @include config-glowy-hover-effect;
 
-  @include sm {
+  @include sm-nav {
     &.open {
       background-color: get-opacity($color-dark, .9);
     }
@@ -43,7 +43,7 @@
     gap: 24px;
     margin-left: auto;
 
-    @include sm {
+    @include sm-nav {
       position: absolute;
       top: 108px;
       left: 0;
@@ -90,7 +90,7 @@
     cursor: pointer;
     display: none;
 
-    @include sm {
+    @include sm-nav {
       display: inline-block;
     }
 
@@ -193,7 +193,7 @@
     @include flex-center;
     @include glass-btn("light", "on", 160px, -50px, $color-main);
 
-    @include sm {
+    @include sm-nav {
       margin-left: auto;
     }
 

@@ -24,6 +24,12 @@ $screen-lg-max: 1919px;
 $screen-xl-max: 5000px;
 
 // Mixins Media Devices
+@mixin sm-nav {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
 @mixin xs {
   @media screen and (max-width: #{$screen-xs-max}) {
     @content;
