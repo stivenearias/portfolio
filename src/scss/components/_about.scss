@@ -1,6 +1,11 @@
 .about {
   @include main-section;
 
+  @include xs {
+    margin: 40px 16px;
+    padding: 0 24px;
+  }
+
   &__title {
     @include section-title;
   }
@@ -23,6 +28,12 @@
     object-fit: cover;
     float: left;
     margin: auto 20px 20px auto;
+    border-radius: 24px;
+
+    @include xs {
+      width: 100%;
+      margin: auto auto 20px auto;
+    }
   }
 
   &__text {
@@ -34,6 +45,10 @@
     }
 
     @include sm {
+      max-width: none;
+    }
+
+    @include xs {
       max-width: none;
     }
 

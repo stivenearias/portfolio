@@ -24,6 +24,7 @@
 
   @include xs {
     margin: 16px;
+    padding: 16px 24px;
   }
 
   a {
@@ -84,6 +85,11 @@
           @include glass-btn("main");
         }
       }
+    }
+
+    @include xs {
+      top: 88px;
+      height: calc(100dvh - 130px);
     }
   }
 

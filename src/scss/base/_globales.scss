@@ -181,6 +181,10 @@ $screen-xl-max: 5000px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: blur(1px);
+
+  @include xs {
+    font-size: 5em;
+  }
 }
 
 // Subitle of each section or component in the page
@@ -191,6 +195,11 @@ $screen-xl-max: 5000px;
   top: -60px;
   text-align: center;
 
+  @include xs {
+    font-size: 1.7em;
+    top: -40px;
+  }
+
   &::before {
     content: "";
     display: block;
@@ -200,6 +209,11 @@ $screen-xl-max: 5000px;
     width: 80px;
     height: 2px;
     background-color: $color-main;
+
+    @include xs {
+      width: 40px;
+      right: 4px;
+    }
   }
 
   &::after {
@@ -211,6 +225,11 @@ $screen-xl-max: 5000px;
     width: 80px;
     height: 2px;
     background-color: $color-main;
+
+    @include xs {
+      width: 40px;
+      left: 4px;
+    }
   }
 }
 

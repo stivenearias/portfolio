@@ -6,15 +6,41 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+      gap: 40px;
+      height: auto;
+    }
+
+    @include xs {
+      flex-direction: column;
+      gap: 20px;
+      height: auto;
+      margin: 88px 16px 40px;
+      padding: 24px;
+    }
   }
 
   &__text {
     display: flex;
     flex-direction: column;
+
+    @include sm {
+      order: 2;
+    }
+
+    @include xs {
+      order: 2;
+    }
   }
 
   &__title {
     font-size: 3em;
+
+    @include xs {
+      font-size: 2.5em;
+    }
 
     span {
       color: $color-main;
@@ -24,11 +50,19 @@
   &__subtitle {
     font-size: 2em;
     color: get-opacity($color-light, 0.5);
+
+    @include xs {
+      font-size: 1.5em;
+    }
   }
 
   &__description {
     max-width: 600px;
     margin: 32px 0;
+
+    @include xs {
+      margin: 20px 0;
+    }
   
     &::before {
       content: "";
@@ -70,7 +104,25 @@
       @include sm {
         width: 320px;
         height: 320px;
+        margin: auto;
       }
+
+      @include xs {
+        width: 240px;
+        height: 240px;
+        margin: auto;
+      }
+    }
+
+    @include sm {
+      order: 1;
+      width: 320px;
+      height: 320px;
+      margin: auto;
+    }
+
+    @include xs {
+      order: 1;
     }
   }
 
@@ -78,6 +130,36 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @include sm {
+      order: 3;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+
+      &::before {
+        display: none !important;
+      }
+
+      &::after {
+        display: none !important;
+      }
+    }
+
+    @include xs {
+      order: 3;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+
+      &::before {
+        display: none !important;
+      }
+
+      &::after {
+        display: none !important;
+      }
+    }
 
     &::before {
       content: "";
