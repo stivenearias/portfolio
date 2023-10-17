@@ -9,11 +9,35 @@ html, body {
   background-color: $color-dark;
   color: $color-light;
   scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: get-opacity($color-main, 0.4);
+    border-radius: 4px;
+
+    &:hover {
+      background: get-opacity($color-main, 0.8);
+      box-shadow: 0 0 2px 2px get-opacity($color-dark, 0.2);
+    }
+
+    &:active {
+      background-color: $color-main;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+  }
 }
 
 ::selection { 
   background: $color-main;
   color:$color-dark;
+  -webkit-text-fill-color: $color-dark;
 }
 
 li {
@@ -32,6 +56,10 @@ button {
 
 main {
   overflow: hidden;
+}
+
+textarea {
+  font-family: $font-main;
 }
 
 // This is necesary for solved a bug with tsparticles that not run the option of select the text

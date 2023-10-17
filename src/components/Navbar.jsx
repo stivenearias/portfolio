@@ -1,15 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { UilImport } from "@iconscout/react-unicons";
 import { handleOnMouseHover } from "./config/glowy-hover-effect";
 
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+
   const urlDownloadResume =
     "https://drive.google.com/uc?id=1PuSpXB12w1xXvqMgcNhKRAJ7FC3D0qcY&export=download";
-  const configReactScroll = {
-    offset: -130,
-    duration: 100,
-  };
+
+  let configReactScroll = {};
+  if (width >= 600) {
+    configReactScroll = {
+      offset: -130,
+      duration: 100,
+    };
+  } else {
+    configReactScroll = {
+      offset: -100,
+      duration: 100,
+    };
+  }
 
   useEffect(() => {
     for (const item of document.querySelectorAll(".navbar")) {
@@ -17,29 +29,36 @@ export const Navbar = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <header className="header">
-      <nav className="navbar">
+      <nav className={`navbar ${isOpen && "open"}`}>
         <Link
           activeClass="active"
           to="home"
           spy={true}
           smooth={true}
-          offset={-130}
+          offset={configReactScroll.offset}
           duration={configReactScroll.duration}
           className="navbar__logo"
         >
-          Stivenns
+          {width >= 600 ? "Stivenns" : "Stv."}
         </Link>
-        <ul className="navbar__items">
+        <ul className={`navbar__items ${isOpen && "open"}`}>
           <li className="navbar__item">
             <Link
               activeClass="active"
               to="home"
               spy={true}
               smooth={true}
-              offset={-130}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
             >
               Home
             </Link>
@@ -50,8 +69,11 @@ export const Navbar = () => {
               to="about"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
             >
               About
             </Link>
@@ -62,8 +84,11 @@ export const Navbar = () => {
               to="work"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
             >
               Work
             </Link>
@@ -74,22 +99,33 @@ export const Navbar = () => {
               to="contact"
               spy={true}
               smooth={true}
-              offset={0}
+              offset={configReactScroll.offset}
               duration={configReactScroll.duration}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
             >
               Contact
             </Link>
           </li>
-          <li className="navbar__item">
-            <a
-              href={urlDownloadResume}
-              className="navbar__resume"
-              rel="noopener noreferrer"
-            >
-              <UilImport size="16" /> Resume
-            </a>
-          </li>
         </ul>
+        <a
+          href={urlDownloadResume}
+          className="navbar__resume"
+          rel="noopener noreferrer"
+        >
+          <UilImport size="16" /> Resume
+        </a>
+        <div
+          className={`navbar__toggle ${isOpen && "open"}`}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </header>
   );

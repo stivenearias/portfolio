@@ -24,6 +24,12 @@ $screen-lg-max: 1919px;
 $screen-xl-max: 5000px;
 
 // Mixins Media Devices
+@mixin sm-nav {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
 @mixin xs {
   @media screen and (max-width: #{$screen-xs-max}) {
     @content;
@@ -111,7 +117,7 @@ $screen-xl-max: 5000px;
   }
 }
 
-// Glass button validating if is dark or light
+// Glass button validating if is dark, light or main color
 @mixin glass-btn($type: "dark", $effect: "off", $transRight: 0, $transLeft: 0, $colorEnd: $color-light) {
   padding: 8px 24px;
   border-radius: 24px;
@@ -150,6 +156,79 @@ $screen-xl-max: 5000px;
     &:hover::before {
       background-color: get-opacity($colorEnd, 0.3);
       transform: skewX(45deg) translateX($transLeft);
+    }
+  }
+}
+
+// Main style of each section or component in the page
+@mixin main-section {
+  margin: 40px 80px;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Title of each section or component in the page
+@mixin section-title {
+  font-size: 8em;
+  font-weight: bold;
+  text-align: center;
+  color: $color-light;
+  background: get-opacity($color-light, 0.2);
+  background: linear-gradient(0deg, get-opacity($color-light, 0) 0%, get-opacity($color-light, 0.2) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(1px);
+
+  @include xs {
+    font-size: 5em;
+  }
+}
+
+// Subitle of each section or component in the page
+@mixin section-subtitle {
+  font-size: 2.2em;
+  position: relative;
+  display: flex;
+  top: -60px;
+  text-align: center;
+
+  @include xs {
+    font-size: 1.7em;
+    top: -40px;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 26px;
+    right: 8px;
+    width: 80px;
+    height: 2px;
+    background-color: $color-main;
+
+    @include xs {
+      width: 40px;
+      right: 4px;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    top: 26px;
+    left: 8px;
+    width: 80px;
+    height: 2px;
+    background-color: $color-main;
+
+    @include xs {
+      width: 40px;
+      left: 4px;
     }
   }
 }

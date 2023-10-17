@@ -1,0 +1,66 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    @include section-title;
+  }
+
+  &__subtitle {
+    @include section-subtitle;
+  }
+
+  &__container {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: 40px;
+
+    @include xs {
+      gap: 20px
+    }
+  }
+
+  &__skill {
+    @include flex-center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    transition: all 500ms;
+    @include glass-box;
+
+    @include xs {
+      flex: 1 1;
+      padding: 20px;
+    }
+
+    svg{
+      width: 120px !important;
+      height: 120px !important;
+
+      @include xs {
+        width: 100px !important;
+        height: 100px !important;
+      }
+
+      path, g {
+        fill: $color-main;
+      }
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 1.2em;
+      letter-spacing: 1px;
+
+      @include xs {
+        font-size: 1.05em;
+      }
+    }
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
