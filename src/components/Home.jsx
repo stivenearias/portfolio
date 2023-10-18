@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-scroll";
 import { UilLinkedinAlt, UilGithubAlt } from "@iconscout/react-unicons";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 export const Home = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  const mainControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    } else {
+      mainControls.start("hidden");
+    }
+  }, [isInView, mainControls]);
+
   return (
     <section id="home" className="home">
       <div className="home__container">
-        <div className="home__text">
+        <motion.div
+          ref={ref}
+          variants={{
+            hidden: { opacity: 0, x: -100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={mainControls}
+          transition={{ duration: 0.7 }}
+          className="home__text"
+        >
           <h1 className="home__title">
             Hi! My name is <span>Stivenns</span>
           </h1>
@@ -25,14 +49,32 @@ export const Home = () => {
           >
             Hire me
           </Link>
-        </div>
-        <div className="home__img">
+        </motion.div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, scale: 0 },
+            visible: { opacity: 1, scale: 1 },
+          }}
+          initial="hidden"
+          animate={mainControls}
+          transition={{ ease: "easeOut", duration: 0.7 }}
+          className="home__img"
+        >
           <img
             src="https://iili.io/J33Ci3G.jpg"
             alt="Vector of a character programming a website"
           />
-        </div>
-        <ul className="home__redes">
+        </motion.div>
+        <motion.ul
+          variants={{
+            hidden: { opacity: 0, x: 100 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={mainControls}
+          transition={{ duration: 0.7 }}
+          className="home__redes"
+        >
           <li className="home__red">
             <a
               href="https://www.linkedin.com/in/stivenns/"
@@ -51,7 +93,7 @@ export const Home = () => {
               <UilGithubAlt />
             </a>
           </li>
-        </ul>
+        </motion.ul>
       </div>
     </section>
   );
