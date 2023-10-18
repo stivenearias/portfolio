@@ -8,5 +8,7 @@ export const ParticlesBackground = () => {
     loadFull(engine);
   }, []);
 
-  return <Particles options={particlesConfig} init={particlesInit} />;
+  const particlesOptions = particlesConfig("#00b8ba");
+
+  return <Particles options={particlesOptions} init={particlesInit} />;
 };
