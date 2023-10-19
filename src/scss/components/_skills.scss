@@ -3,6 +3,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @include main-section;
+
+  @include xs {
+    margin: 40px 16px;
+    padding: 0 24px;
+  }
 
   &__title {
     @include section-title;
@@ -31,7 +37,7 @@
     @include glass-box;
 
     @include xs {
-      flex: 1 1;
+      flex: 0 0;
       padding: 20px;
     }
 

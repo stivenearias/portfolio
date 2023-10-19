@@ -1,8 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm } from "react-hook-form";
 import { UilMessage, UilSmileBeam, UilSad } from "@iconscout/react-unicons";
 import toast, { Toaster } from "react-hot-toast";
+import { TitlesSection } from "./TitlesSection";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export const Contact = () => {
   const notifyOk = () => {
@@ -109,18 +111,58 @@ export const Contact = () => {
       );
   };
 
+  const formIsInView = useInView(form);
+
+  const mainControl = useAnimation();
+
+  const container = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.25,
+        delayChildren: 0.25,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, x: 120 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  useEffect(() => {
+    if (formIsInView) {
+      mainControl.start("visible");
+    } else {
+      mainControl.start("hidden");
+    }
+  }, [formIsInView, mainControl]);
+
   return (
     <section id="contact" className="contact">
-      <h1 className="contact__title">Contact</h1>
-      <h2 className="contact__subtitle">Let's fun code together!</h2>
+      <TitlesSection
+        nameSection="contact"
+        title="Contact"
+        subtitle="Let's fun code together!"
+      />
       <div className="contact__container">
-        <form
+        <motion.form
+          variants={container}
+          initial="hidden"
+          animate={mainControl}
           id="sendEmail"
           className="contact__form"
           ref={form}
           onSubmit={handleSubmit(sendEmail)}
         >
-          <div className="contact__input-box">
+          <motion.div
+            variants={item}
+            transition={{ duration: 0.7 }}
+            className="contact__input-box"
+          >
             <label className="contact__label">Your Name</label>
             <input
               type="text"
@@ -132,9 +174,13 @@ export const Contact = () => {
             {errors.name?.type === "required" && (
               <p className="contact__error">Your name is required</p>
             )}
-          </div>
+          </motion.div>
 
-          <div className="contact__input-box">
+          <motion.div
+            variants={item}
+            transition={{ duration: 0.7 }}
+            className="contact__input-box"
+          >
             <label className="contact__label">Email Address</label>
             <input
               type="email"
@@ -153,9 +199,13 @@ export const Contact = () => {
             {errors.email?.type === "pattern" && (
               <p className="contact__error">Enter a valid email</p>
             )}
-          </div>
+          </motion.div>
 
-          <div className="contact__input-box">
+          <motion.div
+            variants={item}
+            transition={{ duration: 0.7 }}
+            className="contact__input-box"
+          >
             <label className="contact__label">Your Message</label>
             <textarea
               className="contact__input contact__textarea"
@@ -171,12 +221,18 @@ export const Contact = () => {
                 Your message is very long, maximum 1000 characters
               </p>
             )}
-          </div>
-          <button type="submit" form="sendEmail" className="contact__submit">
+          </motion.div>
+          <motion.button
+            variants={item}
+            transition={{ duration: 0.7 }}
+            type="submit"
+            form="sendEmail"
+            className="contact__submit"
+          >
             Send Message
             <UilMessage />
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
       </div>
       <Toaster />
     </section>

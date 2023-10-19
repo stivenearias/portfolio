@@ -1,16 +1,55 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import workData from "./config/work-data";
 import { UilExternalLinkAlt } from "@iconscout/react-unicons";
+import { TitlesSection } from "./TitlesSection";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export const Work = () => {
+  const refWorks = useRef(null);
+  const workIsInView = useInView(refWorks, { once: true });
+
+  const mainControl = useAnimation();
+
+  const variants = {
+    hidden: { opacity: 0, y: -40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0.25,
+      },
+    }),
+  };
+
+  useEffect(() => {
+    if (workIsInView) {
+      mainControl.start("visible");
+    } else {
+      mainControl.start("hidden");
+    }
+  }, [workIsInView, mainControl]);
+
   return (
     <section id="work" className="work">
-      <h1 className="work__title">Work</h1>
-      <h2 className="work__subtitle">Experience and projects</h2>
-      <div className="work__container">
-        {workData.map((work) => {
+      <TitlesSection
+        nameSection="work"
+        title="Work"
+        subtitle="Experience and projects"
+      />
+      <div ref={refWorks} className="work__container">
+        {workData.map((work, i) => {
           return (
-            <article key={work.key} className="work__item">
+            <motion.article
+              custom={i + 1}
+              variants={variants}
+              initial="hidden"
+              animate={mainControl}
+              whileHover={{ scale: 1.05 }}
+              key={work.key}
+              className="work__item"
+            >
               <div className="work__container-img">
                 <img src={work.img} alt={work.title} className="work__img" />
               </div>
@@ -62,7 +101,7 @@ export const Work = () => {
                   })}
                 </div>
               </div>
-            </article>
+            </motion.article>
           );
         })}
       </div>

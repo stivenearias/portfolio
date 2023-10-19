@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Html5Plain,
   Css3Plain,
@@ -11,54 +11,97 @@ import {
   JqueryPlain,
   BootstrapPlain,
 } from "devicons-react";
+import { TitlesSection } from "./TitlesSection";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export const Skills = () => {
+  const refSkills = useRef(null);
+  const skillIsInView = useInView(refSkills, { once: true });
+
+  const mainControl = useAnimation();
+
+  const container = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.25,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  useEffect(() => {
+    if (skillIsInView) {
+      mainControl.start("visible");
+    } else {
+      mainControl.start("hidden");
+    }
+  }, [skillIsInView, mainControl]);
+
   return (
     <section id="skills" className="skills">
-      <h1 className="skills__title">Skills</h1>
-      <h2 className="skills__subtitle">To bring projects to life</h2>
-      <div className="skills__container">
-        <div className="skills__skill">
+      <TitlesSection
+        nameSection="skills"
+        title="Skills"
+        subtitle="To bring projects to life"
+      />
+
+      <motion.div
+        ref={refSkills}
+        variants={container}
+        initial="hidden"
+        animate={mainControl}
+        className="skills__container"
+      >
+        <motion.div variants={item} className="skills__skill">
           <Html5Plain />
           <p>HTML</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <Css3Plain />
           <p>CSS</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <JavascriptPlain />
           <p>JavaScript</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <ReactOriginal />
           <p>ReactJS</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <SassOriginal />
           <p>SASS</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <GitPlain />
           <p>Git</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <GithubOriginal />
           <p>GitHub</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <PhpPlain />
           <p>PHP</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <JqueryPlain />
           <p>JQuery</p>
-        </div>
-        <div className="skills__skill">
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <BootstrapPlain />
           <p>Bootstrap</p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
