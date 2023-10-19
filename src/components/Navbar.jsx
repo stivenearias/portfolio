@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { UilImport } from "@iconscout/react-unicons";
 import { handleOnMouseHover } from "./config/glowy-hover-effect";
+import { motion } from "framer-motion";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,24 @@ export const Navbar = () => {
     };
   }
 
+  const container = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.25,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: -80 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   useEffect(() => {
     for (const item of document.querySelectorAll(".navbar")) {
       item.onmousemove = (e) => handleOnMouseHover(e);
@@ -35,7 +54,12 @@ export const Navbar = () => {
 
   return (
     <header className="header">
-      <nav className={`navbar ${isOpen && "open"}`}>
+      <motion.nav
+        initial={{ opacity: 0, y: -140 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`navbar ${isOpen && "open"}`}
+      >
         <Link
           activeClass="active"
           to="home"
@@ -47,8 +71,13 @@ export const Navbar = () => {
         >
           {width >= 600 ? "Stivenns" : "Stv."}
         </Link>
-        <ul className={`navbar__items ${isOpen && "open"}`}>
-          <li className="navbar__item">
+        <motion.ul
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className={`navbar__items ${isOpen && "open"}`}
+        >
+          <motion.li variants={item} className="navbar__item">
             <Link
               activeClass="active"
               to="home"
@@ -62,8 +91,8 @@ export const Navbar = () => {
             >
               Home
             </Link>
-          </li>
-          <li className="navbar__item">
+          </motion.li>
+          <motion.li variants={item} className="navbar__item">
             <Link
               activeClass="active"
               to="about"
@@ -77,8 +106,8 @@ export const Navbar = () => {
             >
               About
             </Link>
-          </li>
-          <li className="navbar__item">
+          </motion.li>
+          <motion.li variants={item} className="navbar__item">
             <Link
               activeClass="active"
               to="work"
@@ -92,8 +121,8 @@ export const Navbar = () => {
             >
               Work
             </Link>
-          </li>
-          <li className="navbar__item">
+          </motion.li>
+          <motion.li variants={item} className="navbar__item">
             <Link
               activeClass="active"
               to="contact"
@@ -107,8 +136,8 @@ export const Navbar = () => {
             >
               Contact
             </Link>
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
         <a
           href={urlDownloadResume}
           className="navbar__resume"
@@ -126,7 +155,7 @@ export const Navbar = () => {
           <span></span>
           <span></span>
         </div>
-      </nav>
+      </motion.nav>
     </header>
   );
 };
