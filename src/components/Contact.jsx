@@ -41,7 +41,7 @@ export const Contact = () => {
   };
 
   const notifyError = ({ name, email, message }) => {
-    const mailto = `mailto:bsea096@hotmail.com?subject=** I want to hire you! From ${name}&body=Hi Stivenns!%0A%0A${name} is interested in you!%0A%0AFrom email: ${email}%0A%0AMessage: ${message}%0A%0A`;
+    const mailto = `mailto:stivenearias@gmail.com?subject=** I want to hire you! From ${name}&body=Hi Stivenns!%0A%0A${name} is interested in you!%0A%0AFrom email: ${email}%0A%0AMessage: ${message}%0A%0A`;
 
     toast(
       (t) => (
@@ -95,7 +95,7 @@ export const Contact = () => {
   const sendEmail = (data) => {
     emailjs
       .sendForm(
-        "service_s3zx5jk",
+        "service_5ol1klm",
         "template_8j9q7lu",
         form.current,
         "n4YYMZ7a8Z2R-79rq"

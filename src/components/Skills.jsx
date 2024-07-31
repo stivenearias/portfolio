@@ -10,6 +10,12 @@ import {
   PhpPlain,
   JqueryPlain,
   BootstrapPlain,
+  TypescriptPlain,
+  JavaPlain,
+  NodejsPlain,
+  ExpressOriginal,
+  MongodbPlain,
+  AzuresqldatabasePlain,
 } from "devicons-react";
 import { TitlesSection } from "./TitlesSection";
 import { motion, useAnimation, useInView } from "framer-motion";
@@ -70,16 +76,36 @@ export const Skills = () => {
           <p>CSS</p>
         </motion.div>
         <motion.div variants={item} className="skills__skill">
+          <SassOriginal />
+          <p>SASS</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
           <JavascriptPlain />
           <p>JavaScript</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
+          <TypescriptPlain />
+          <p>TypeScript</p>
         </motion.div>
         <motion.div variants={item} className="skills__skill">
           <ReactOriginal />
           <p>ReactJS</p>
         </motion.div>
         <motion.div variants={item} className="skills__skill">
-          <SassOriginal />
-          <p>SASS</p>
+          <NodejsPlain />
+          <p>NodeJS</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
+          <ExpressOriginal />
+          <p>ExpressJS</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
+          <MongodbPlain />
+          <p>MongoDB</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
+          <AzuresqldatabasePlain />
+          <p>SQL</p>
         </motion.div>
         <motion.div variants={item} className="skills__skill">
           <GitPlain />
@@ -88,6 +114,10 @@ export const Skills = () => {
         <motion.div variants={item} className="skills__skill">
           <GithubOriginal />
           <p>GitHub</p>
+        </motion.div>
+        <motion.div variants={item} className="skills__skill">
+          <JavaPlain />
+          <p>Java</p>
         </motion.div>
         <motion.div variants={item} className="skills__skill">
           <PhpPlain />
