@@ -9,7 +9,7 @@ export const Navbar = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   const urlDownloadResume =
-    "https://drive.google.com/uc?id=1PuSpXB12w1xXvqMgcNhKRAJ7FC3D0qcY&export=download";
+    "https://drive.google.com/uc?id=1fG6MNxoe1LQaJ6bF_x4H5zP2LdPGf3T5&export=download";
 
   let configReactScroll = {};
   if (width >= 600) {
